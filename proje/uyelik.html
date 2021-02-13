@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ÜYELİK</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"> </script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"> </script>
+</head>
+<body>
+<div class="container  bg-info border">
+	<form action="save.php" method="post" id="frm1">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Üyelik Formu</h2>
+      <div class="form-group row">
+        <label for="ad" class="col-md-2">Adınız:</label>
+        <div class="col-md-10">
+          <input type="text" class="form-control" id="ad" placeholder="Adınızı giriniz" name="adi" required="">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="soyad" class="col-md-2">Soyadınız:</label>
+        <div class="col-md-10">
+          <input type="text" class="form-control" id="soyad" placeholder="Soyadınızı giriniz" name="soyadi" required="">
+        </div>
+      </div>
+	
+      <div class="form-group row">
+        <label for="eposta" class="col-md-2">E-posta:</label>
+        <div class="col-md-10">
+          <input type="email" class="form-control" id="eposta" placeholder="E-postanızı giriniz" name="email" required="">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="iller" class="col-md-2">İliniz:</label>
+        <div class="col-md-10">
+          <select name="il" class="form-control" id="iller">
+            <option selected>Seçiniz</option>
+            <option value="İstanbul">İstanbul</option>
+            <option value="Ankara">Ankara</option>
+            <option value="Adana">Adana</option>
+            <option value="Bursa">Bursa</option>
+          </select>
+        </div>
+      </div>
+      <hr>
+      <div class="form-group row">
+        <label for="k_ad" class="col-md-2">Kullanıcı Adı:</label>
+        <div class="col-md-10">
+          <input type="text" class="form-control" id="k_ad" placeholder="Bir kullanıcı adı giriniz" name="k_adi" required="">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="sifre" class="col-md-2">Şifre:</label>
+        <div class="col-md-10">
+          <input type="password" class="form-control" id="sifre" placeholder="Bir şifre oluşturunuz" name="sif" required="">
+        </div>
+		</div>
+		<div class="form-group row">
+        <label for="sifre_t" class="col-md-2">Şifre Tekrar:</label>
+        <div class="col-md-10">
+          <input type="password" class="form-control" id="sifre_t" placeholder="Şifreyi tekrar giriniz" name="sif_t" required="">
+        </div>
+      </div>
+      <hr>
+      <div class="form-group">
+        <div class="form-check-inline">Cinsiyetiniz:
+          <div class="form-check">
+            <label class="form-check-label" for="radio1">
+              <input type="radio" class="form-check-input" id="radio1" name="cinsiyet" value="kadin" >
+              Kadın </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="radio2">
+              <input type="radio" class="form-check-input" id="radio2" name="cinsiyet" value="erkek">
+              Erkek </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="adres" class="col-md-2">Adres:</label>
+        <div class="col-md-10">
+          <textarea class="form-control" rows="4" id="adres" name="adres" placeholder="Adresinizi giriniz..."></textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2">Hobileriniz:</label>
+        <div class="col-md-10">
+          <div class="row">
+            <label for="h1" class="col-md-3">
+              <input  type="checkbox" name="hobi[]" id="h1" value="1"/>
+              Müzik </label>
+            <label for="h2" class="col-md-3">
+              <input  type="checkbox" name="hobi[]" id="h2" value="2"/>
+              Gezi </label>
+          </div>
+          <div class="row">
+            <label for="h3" class="col-md-3">
+              <input  type="checkbox" name="hobi[]" id="h3" value="3"/>
+              Spor </label>
+            <label for="h4" class="col-md-3">
+              <input  type="checkbox" name="hobi[]" id="h4" value="4"/>
+              Kitap </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-2"></label>
+        <div class="col-md-10">
+          <button type="button" class="btn btn-dark" id="kaydet">Kaydet</button>
+			<div id="sonuc"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+	</form>
+</div>
+	<script>
+	 $("#kaydet").click(function(){
+		 var adi = $("#ad").val();
+		 var soyadi=$("#soyad").val();
+		 var email=$("#eposta").val();
+		 var k_adi=$("#k_ad").val();
+		 var sif=$("#sifre").val();
+		 var sif_t=$("#sifre_t").val();
+		 var hata = 0;
+		 var hata_mesaji="";
+		var form =  $(this).parents("form")
+		 
+		 
+		if(adi.length<3){
+			hata = 1;
+			hata_mesaji += "Adınız bu kadar kısa olamaz <br> \n";
+			 
+		}
+		 
+		if(adi.length>30){
+			hata = 1;
+			hata_mesaji += "Adınız bu kadar uzun olamaz <br> \n";
+			 
+		}
+		 
+		if(soyadi.length<3){
+			hata= 1;
+			hata_mesaji += "Soyadınız bu kadar kısa olamaz <br>\n";
+			 
+		}
+		 
+		if(soyadi.length>30){
+			hata= 1;
+			hata_mesaji += "Soyadınız bu kadar uzun olamaz <br>\n";	
+			 
+		}
+		 
+		if(email.length<7){
+			hata= 1;
+			hata_mesaji += "Email adresiniz bu kadar kısa olamaz <br>\n";	
+			 
+		}
+		 
+		if(email.length>50){
+			hata= 1;
+			hata_mesaji += "Email adresiniz bu kadar uzun olamaz <br>\n";
+			 
+		}
+		 
+		if(k_adi.length<5){
+			hata= 1;
+			hata_mesaji += "Kullanıcı adınız bu kadar kısa olamaz <br>\n";
+		}
+		 
+		 
+		if(k_adi.length>10){
+			hata= 1;
+			hata_mesaji += "Kullanıcı adınız bu kadar uzun olamaz <br>\n";
+			 
+		}
+		 
+		if(sif.length<5){
+			hata= 1;
+			hata_mesaji += "Şifreniz bu kadar kısa olamaz <br>\n";
+			
+		}
+		 
+		
+		if(sif.length>10){
+			hata= 1;
+			hata_mesaji += "Şifreniz bu kadar uzun olamaz <br>\n";
+			 
+		}
+		 
+		if(sif!=sif_t){
+			hata= 1
+			hata_mesaji += "Şifreler aynı olmalıdır <br>\n";
+		}
+		
+		 
+		
+		 $("#sonuc").html("");
+		 if(hata!=0){
+			 $("#sonuc").html("<p class='alert alert-danger'>" + hata_mesaji + "</p>");
+		 }else{
+			 form.submit();
+
+		 }
+		 
+		
+		
+		 
+		
+		 
+		 
+	 });
+		
+	
+	</script>
+</body>
+</html>

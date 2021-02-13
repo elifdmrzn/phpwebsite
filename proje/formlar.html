@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>İLETİŞİM</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"> </script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"> </script>
+
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+	<a class="navbar-brand" href="index.html"><img src="logo.PNG" width="75" height="50" class="rounded-circle"></a>
+
+
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="index.html">Ana sayfa</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="projeler.html">Projelerimiz</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="hakkımızda.html">Hakkımızda</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="Iletisim.html">Ev Kredisi</a>
+			</li>
+		</ul>
+	</div>
+</nav>	
+	<div class="container bg-info">
+			<div class="row">
+				<div class="col-md-6">
+				<h2>Yorum Yaz</h2>
+					<label for="adi"> Adınız</label>
+					<input type="text" class="form-control" placeholder="Adınızı giriniz">
+					<label for="soyadi">Soyadınız</label>
+						<input type="text" class="form-control" placeholder="Soyadınızı giriniz">
+					<label for="email">E-Posta</label>
+					<input type="email" class="form-control" id="email" placeholder="E-postanızı giriniz" name="email">
+					<label for="telefon">Telefon</label>
+					<input type="tel" class="form-control" placeholder="Telefon numaranızı giriniz">
+					<label for="yorum">Yorumunuzu Yazın</label>
+					<textarea class="form-control" rows="5" id="yorum" placeholder="Buraya yorumunuzu yazınız..."></textarea>
+					<br><button type="submit" class="btn btn-dark">Gönder</button>
+					
+					
+					</div>
+				   
+					<div class="col-md-6">
+					<h2>Giriş Yap</h2>
+						<label for="email">E-Posta</label>
+						<input type="email" class="form-control" id="eposta" placeholder="E-Postanızı girin">
+						<label for="sifre">Şifre</label>
+						<input type="password" class="form-control" id="sifre" placeholder="Şifrenizi girin">
+						<br><button type="submit" class="btn btn-dark">Giriş Yap</button>
+
+				
+					
+			    
+						<br><br>
+						<label for="obs">
+							<h2>Öğrenci Bilgilendirme Sistemi</h2></label>
+					<input type="text" class="form-control" id="tc" placeholder="TC giriniz">
+					<input type="password" class="form-control" id="pwd" placeholder="Şifre giriniz">
+						<br><select name="fakulte[]" class="form-control" multiple="">
+							<option selected>Seçiniz</option>
+							<option value="Teknoloji">Teknoloji Fakültesi</option>
+							<option value="Mühendislik">Mühendislik Fakültesi</option>
+							<option value="Bilg">Bilgisayar Bilimleri Fakültesi</option>
+						</select>
+					<br><br><button type="submit" class="btn btn-dark">Giriş</button>
+					
+					</div>
+					
+					<div class="col-md-6">
+					<div class="form-check">
+					<br><h2>SendeKazan Üyelik Formu</h2>
+					Cinsiyetiniz:
+					
+						<div class="form-check-inline">
+							<label class="form-check-label" for="radio1">
+								<input type="radio" class="form-check-input" id="radio1" name="optradio" value="kadin" checked>Kadın
+							</label>
+						</div>
+						<div class="form-check-inline">
+							<label class="form-check-label" for="radio2">
+								<input type="radio" class="form-check-input" id="radio2" name="optradio" value="erkek">Erkek
+							</label>
+						</div>
+						
+						</div>
+						
+					<label for="isim">Adınız</label>
+					<input type="text" class="form-control" id="isim">
+					<label for="soyisim">Soyadınız</label>
+					<input type="text" class="form-control" id="soyisim">
+					<label for="email">E posta</label>
+					<input type="email" class="form-control" id="eposta">
+					
+						<div class="form-group">
+							<label for="check1" class="ml-4 mt-1">
+							<input type="checkbox" class="form-check-input" id="check1" name="hatirla" value="xyz" checked> Beni hatırla</label>
+						</div>
+					
+ 
+					 
+					<button type="submit" class="btn btn-dark">Üye Ol</button>
+					</div>
+						
+					</div>
+					
+					
+			     
+				
+			</div>
+			
+			        
+			        	
+			        	
+		
+		
+	</div>
+	
+                 
+</body>
+</html>
